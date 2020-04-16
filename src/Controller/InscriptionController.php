@@ -27,8 +27,6 @@ class InscriptionController extends AbstractBaseController
 
         
         if ($form->isSubmitted() && $form->isValid()) {
-            // On pourrait mettre la date à ce niveau mais on le fait automatiquement avec EventSubscriber
-           // $user->setCreated(new DateTime());
             $en->persist($user);
             $en->flush();
             return $this->json($user, Response::HTTP_CREATED,

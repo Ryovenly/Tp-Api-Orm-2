@@ -26,7 +26,6 @@ final class ArtistOutputDataTransformer implements DataTransformerInterface
         $output->id = $object->getId();
         $output->name = $object->getName();
         $output->startYear = $object->getStartYear();
-
         $output->albumRelease = $object->getAlbums();
         $output->fanNumber = $object->getUsers();
         $output->styles = $object->getStyles();
