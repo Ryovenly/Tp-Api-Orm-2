@@ -2,7 +2,7 @@
 
 
     Qu'est-ce qu'un DTO et à quoi sert-il ?
-    	DTO(data transfer object) regroupe plusieurs données issus d'une autre entity permettant ainsi de modifier et de faire afficher les données qu'on souhaite montrer.
+    DTO(data transfer object) regroupe plusieurs données issus d'une autre entity permettant ainsi de modifier et de faire afficher les données qu'on souhaite montrer.
 	Elle sert ainsi de manipuler des données et pouvoir en créer d'autres issue de ces données.
 
     Quelle est la différence entre un listener et un subscriber dans Symfony ?
