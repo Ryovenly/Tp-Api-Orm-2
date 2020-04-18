@@ -8,12 +8,17 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use App\Dto\AlbumOutput;
+use App\Dto\ArtistOutput;
+use App\Dto\UserOutput;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 // Rechercher un artiste par son nom (stratégie : nom partiel, insensible à la casse)
 
 
 /**
- * @ApiResource()
+ * @ApiResource(output=ArtistOutput::class,
+ * normalizationContext={"groups"={"artist_read"}})
  * @ORM\Entity(repositoryClass="App\Repository\ArtistRepository")
  * @ApiFilter(SearchFilter::class, properties={"name": "partial"})
  */
@@ -28,10 +33,13 @@ class Artist extends AbstractEntity
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("user_read")
+     * @Groups("album_read")
      */
     private $name;
 
     /**
+     * @Groups("user_read")
      * @ORM\Column(type="integer")
      */
     private $startYear;

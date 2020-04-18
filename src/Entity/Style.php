@@ -8,11 +8,15 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use App\Dto\ArtistOutput;
+use App\Dto\StyleOutput;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 // Rechercher un style par son nom (stratégie : commence par, insensible à la casse)
 
 /**
- * @ApiResource()
+ * @ApiResource(output=StyleOutput::class,output=ArtistOutput::class,
+ * normalizationContext={"groups"={"style_read"}})
  * @ORM\Entity(repositoryClass="App\Repository\StyleRepository")
  * @ApiFilter(SearchFilter::class, properties={"name": "partial"})
  */
@@ -26,6 +30,7 @@ class Style extends AbstractEntity
     private $id;
 
     /**
+     * @Groups("artist_read")
      * @ORM\Column(type="string", length=255)
      */
     private $name;

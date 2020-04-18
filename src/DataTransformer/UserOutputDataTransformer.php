@@ -25,7 +25,9 @@ final class UserOutputDataTransformer implements DataTransformerInterface
 
         $output->id = $object->getId();
         $output->email = $object->getEmail();
-        $output->artistsNumber = $object->getArtists();
+
+        $artist = $object->getArtists();
+        $output->artistsNumber = sizeof($artist);
         $output->artists = $object->getArtists();
 
 

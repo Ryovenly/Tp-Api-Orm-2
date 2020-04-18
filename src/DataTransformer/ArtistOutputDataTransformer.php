@@ -5,6 +5,7 @@ namespace App\DataTransformer;
 use ApiPlatform\Core\DataTransformer\DataTransformerInterface;
 use App\Dto\ArtistOutput;
 use App\Entity\Artist;
+use Symfony\Component\Console\Output\Output;
 use Symfony\Component\Validator\Constraints\Length;
 
 final class ArtistOutputDataTransformer implements DataTransformerInterface
@@ -26,8 +27,12 @@ final class ArtistOutputDataTransformer implements DataTransformerInterface
         $output->id = $object->getId();
         $output->name = $object->getName();
         $output->startYear = $object->getStartYear();
-        $output->albumRelease = $object->getAlbums();
-        $output->fanNumber = $object->getUsers();
+
+        $albums = $object->getAlbums();
+        $output->albumRelease = sizeof($albums);
+
+        $users = $object->getUsers();
+        $output->fanNumber = sizeof($users);
         $output->styles = $object->getStyles();
 
 

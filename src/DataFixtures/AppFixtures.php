@@ -55,7 +55,7 @@ class AppFixtures extends Fixture
           }
 
         // fixtures Album
-        for ($l = 0; $l < 20; $l++) {
+        for ($l = 0; $l < 200; $l++) {
         $album = new Album();
         $album->setName($faker->word())
             ->setReleaseYear(($faker->numberBetween($min = 1980, $max = 2020)))

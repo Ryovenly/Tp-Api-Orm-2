@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
+use App\Dto\AlbumOutput;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 
@@ -14,7 +16,8 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\RangeFilter;
 // Rechercher un album par année de sortie (exacte, après telle année, ou entre telle et telle année)
 
 /**
- * @ApiResource()
+ * @ApiResource(output=AlbumOutput::class,
+ * normalizationContext={"groups"={"album_read"}})
  * @ORM\Entity(repositoryClass="App\Repository\AlbumRepository")
  * @ApiFilter(SearchFilter::class, properties={"name": "partial"})
  * @ApiFilter(RangeFilter::class, properties={"releaseYear"})

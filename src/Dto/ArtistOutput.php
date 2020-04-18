@@ -8,32 +8,32 @@ use Symfony\Component\Serializer\Annotation\Groups;
 final class ArtistOutput{
 
     /**
-     * @Groups("artiste_read")
+     * @Groups("artist_read")
      */
     public $id;
 
     /**
-     * @Groups("artiste_read")
+     * @Groups("artist_read")
      */
     public $name;
 
     /**
-     * @Groups("artiste_read")
+     * @Groups("artist_read")
      */
     public $startYear;
     
     /**
-     * @Groups("artiste_read")
+     * @Groups("artist_read")
      */
     public $albumRelease;
 
     /**
-     * @Groups("artiste_read")
+     * @Groups("artist_read")
      */
     public $fanNumber;
 
     /**
-     * @Groups("artiste_read")
+     * @Groups("artist_read")
      */
     public $styles;
 
